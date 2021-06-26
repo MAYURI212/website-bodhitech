@@ -1,0 +1,128 @@
+{% extends 'layout/welayout.html' %}
+{% load static %}
+{% block title %}
+   {{title}}
+{% endblock %}
+
+
+{% block content %}
+<!--Carousel Section Start -->
+  <br>
+  
+<div class="home-slider owl-carousel js-fullheight">
+  
+  {% for y in carousel%}
+  <div class="slider-item js-fullheight" style="background-image:url({{y.Img.url}});">
+    <div class="overlay"></div>
+    <div class="container">
+      
+      <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
+        <div class="col-md-12 ftco-animate">
+          <div class="text w-100 text-center" data-aos="zoom-in" data-aos-delay="100" >
+            <!-- <h2 style=" font-size: 250%;color:whitesmoke"><b>Vocational Training &amp;Internship</b></h2> -->
+            <div class="direction">
+            <h2 style=" font-size: 250%;color:whitesmoke;"> {{y.heading}}</b></h2>
+            <h3> {{y.des}}</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+{% endfor %}
+
+</div>
+
+<!--Carousel Section End -->
+<br>
+<main id="main">
+ <!-- start service Section -->
+ <div class="container">
+  <h1  style="text-align: center; color: #00ca54;font-size: 200%; font-family:' Poppins;'">{{second_title}}</h1>
+  <div class="row">
+      {%for p in services%}
+      <div class="col-md-4 col-sm-6 d-fex justify-content-center">
+        <div class="serviceBox green">
+           
+            <img src="{{p.Img.url}}" alt="" />
+              <h3 class="title">{{p.title}}</h3>
+              <p class="description">
+               {{p.content}}
+              </p>
+          </div>
+      </div>
+      {% endfor %}
+      
+    </div>
+  </div>
+
+
+  <!-- end service Section -->
+
+
+<!-- start_clients -->
+<section>
+   <div class="container">
+    <div class="form-horizontal"> <h1 class="text-center pt-5 pb-5" style="color: #5fcf80;" > <b>{{third_title}}</b> </h1> 
+    <div class="row">
+        
+          <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css /> -->
+          
+          <div class="container">
+            
+            <div class="row">
+                 
+                <div class="col-md-4 col-sm-7 d-fex justify-content-center ">
+                  {%for m in clients%}
+                  <a href="{{m.link}}" target="blank">
+                  <div class="counter">
+                    <div class="counter-content">
+
+                      <img src="{m.img.url}}" alt="">
+
+                    </div>
+                   </div> 
+                   </a>
+                   {% endfor %}
+                </div>
+                
+              </div>>
+          </div>
+      </div>
+      </div>>
+  </div>
+</section>
+ <!-- end_clients -->
+
+
+
+
+<!--======= About Section ======= -->
+<section id="about" class="about">
+<div class="container" data-aos="fade-up">
+  {% for x in about %}
+  <div class="row">
+   
+    <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+      <img src="{{x.img.url}}" class="img-fluid" alt="">
+    </div>
+    <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+      <h2 style="color:#00ca54"><b>{{x.heading}}</b></h2>
+      <ul>
+        <li><i class="bi bi-check-circle"></i> {{x.desc1}} </li>
+        <li><i class="bi bi-check-circle"></i> {{x.desc2}} </li>
+         <li><i class="bi bi-check-circle"></i>  {{x.desc3}}</li>
+       
+      </ul>
+    </div>
+ 
+  </div>
+  {% endfor %}
+ </div>
+</section>
+<!-- End About Section -->
+
+</main><!-- End #main -->
+<br>
+{% endblock %}

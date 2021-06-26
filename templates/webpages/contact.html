@@ -1,0 +1,35 @@
+{% extends "layout/welayout.html" %}
+{% load static %}
+
+{% block title %} | Contact-Us {% endblock %}
+
+
+{% block content %} 
+<br>
+<br>
+<br>
+<section>
+  <br>
+  <div> <br></div>
+  <div>
+    {% if messages %}          
+    {% for message in messages %}
+    <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %} </div>
+<div>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit">
+    </form>
+</div>
+</section>
+<br>
+<br>
+{% endblock %}
